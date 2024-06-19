@@ -1,0 +1,31 @@
+class Vehiculo {
+    constructor(marca, modelo, año) {
+        this.marca = marca;
+        this.modelo = modelo;
+        this.año = año;
+    }
+// se define la clase base Vehiculo
+
+    obtenerInformacion() {
+        return Marca `${this.marca}, Modelo: ${this.modelo}, Año: ${this.año}`;
+    }
+}
+
+class Automovil extends Vehiculo { // se crea la clase hija Automovil que hereda de Vehiculo
+    constructor(marca, modelo, año, color, precio) {
+        super(marca, modelo, año); // Llamada al constructor de la clase base
+        this.color = color;
+        this.precio = precio;
+    }
+
+    obtenerInformacion() {
+        return `${super.obtenerInformacion()}, Color: ${this.color}, Precio: ${this.precio}`;
+    }
+}
+
+const miVehiculo = new Vehiculo('Toyota', 'Corolla', 2020);
+console.log(miVehiculo.obtenerInformacion());
+// se crear instancias de ambas clases y mostrar la información en la consola
+
+const miAutomovil = new Automovil('Honda', 'Civic', 2021, 'Rojo', 22000);
+console.log(miAutomovil.obtenerInformacion());
